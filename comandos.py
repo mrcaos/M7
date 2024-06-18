@@ -40,6 +40,17 @@ ejemplo 'NAME': BASE_DIR / 'onliflans.sqlite3'
 
 python manage.py startapp homeApp -----> creamos la aplicacion 
 
+agregar la aplicacion en el settings.py 
+INSTALLED_APPS = [
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    'homeApp',  
+]
+
 
 hito2
 agregamos la aplicacion en settings.py del proyecto en las APPS agregarems "App", o como se llame nuestra APPs
@@ -182,7 +193,7 @@ en la aplicacion iremos a models.py
 y crearemos un modelo de contenga varios atributos 
 
 from django.db import models / los models dependeran de lo pedido por el cliente 
-
+class Tarea(models.Models):
 # Create your models here.
 class Flan(models.Model):
     #ATRIBUTOS
