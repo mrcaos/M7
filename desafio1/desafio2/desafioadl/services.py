@@ -43,5 +43,10 @@ def elimina_sub_tarea(subtarea_id):
     sub_tarea.save()
     return recupera_tareas_y_sub_tareas()
 
-def imprimir_en_pantalla():
-    pass
+def imprimir_en_pantalla(tareas_y_subtareas):
+    for tarea_info in tareas_y_subtareas:
+        tarea = tarea_info['tarea']
+        subtareas = tarea_info['subtareas']
+        print(f"[{tarea.id}] {tarea.descripcion}")
+        for subtarea in subtareas:
+            print(f"...... [{subtarea.id}] {subtarea.descripcion}")
