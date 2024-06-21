@@ -1,79 +1,93 @@
-"""
 #######CREACION DE PYOYECTO#######
 
-python -m venv nombreEntorno
+##par ver las versiones
+#python -V --> ver version de python 
+#python -m django ---> ver version de django
 
-source nombreEntorno/Scritpt/activate
+##crea y activa el entorno
+#python -m venv nombreEntorno
+#source nombreEntorno/Scritpt/activate
 
-python -V --> ver version de python 
-python -m django ---> ver version de django
+##ver las dependencias e instalar lo solicitado
+#pip list
+#pip install django
+#pip install django==3.2.4 ---> instala una version especifica
+#pip list
 
-pip install django
-pip install django==3.2.4 ---> instala una version especifica
+##crear proyecto e ingresar a la carpeta
+#django-admin startproject nombreProyecto
+#cd nombreProyecto
 
-pip list ---> ver versiones instaladas
+##agregar App al proyecto 
+#python manage.py startapp nombreApp
 
-django-admin startproject nombreProyecto
-cd nombreProyecto
-
-python manage.py startapp nombreApp ---> creamos una aplicacion
-setting.py
-agregar la aplicacion en el settings.py 
+##vinculamos App al proyecto (setting.py)
 INSTALLED_APPS = [
     'nombreApp',
+    ...,
 ]
 
-python manage.py migrate
-python manage.py createsuperuser --> creamos el super usuario, en la web /admin
-python manage.py runserver
-
-deactivate --> desactiva el entorno 
-
-
-########CREACION DE MODELOS#######
-
-en models.py crearemos un modelo de contenga varios atributos 
-los models dependeran de lo pedido por el cliente
-
-from django.db import models 
-
-# Create your models here.
-
-class Tarea(models.Models):
-class Flan(models.Model):
-
-
-#######ORM#######
-instalar drivers de bse de datos, se pueden instalar varios sin problema 
-
-se reemplaza en settings.py
+##ORM instalar driver en nuestro entorno virtual 
+#sqlite viene por defecto
+#pip install psycopg2        #para postGres
+#se reemplaza en settings.py
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": "sistema_base",
         "USER": "postgres",
-        "PASSWORD": "",
+        "PASSWORD": "password",
         "HOST": "127.0.0.1",
         "PORT": "5432", #segun el motor que ocuparemos
     }
 }
+#pip install mysqlclient      #para mysqlclient
 
-pip install psycopg2   #postgres
-pip list
-pip install mysqlclient
+##insertar/crear super usuario
+#python manage.py createsuperuser
 
-python manage.py makemigrations
-python manage.py migrate
+##CREACION DE MODELOS
+#crear el modelo en models.py
+#from django.db import models
+class Tarea(models.Models):
+    pass
 
-#conocer todas las migraaciones y saber cuales se han ejecutado
-python manage.py showmigrations 
+class Flan(models.Model):
+    pass
+##ejecutamos las migraciones
+#python manage.py makemigrations
+#python manage.py migrate
 
-revertir una aplicacion especifica
-python manage.py migrate testadl 0001_initial
+##Templates
+#crear carpeta templates en la App
+#crear los HTML, con estrutura basica
+#crear metodo de despliegue en HTML
+#crear ruta que enlaza a viewa.py de la App
 
-revierte todas las migraciones de una aplicacion 
-python manage.py migrate testadl zero
+## Jazzmin
+#pip install -U django-jazzmin
+INSTALLED_APPS = [
+    'jazzmin',
+    ......,
+]
 
-terminal conectada a la base de datos
-python manage.py shell
-"""
+#python manage.py runserver 0.0.0.0:8000
+#http://192.168.0.17:8000
+
+##conocer todas las migraaciones y saber cuales se han ejecutado en la base de datos
+#python manage.py showmigrations 
+#python manage.py showmigrations testadl
+
+##revertir migracion especifica
+#python manage.py migrate testadl 0001_initial
+
+##revierte todas las migraciones de una aplicacion 
+#python manage.py migrate testadl zero
+
+##terminal conectada a la base de datos
+#python manage.py shell
+
+##desplegar proyeco
+#python manage.py runserver
+
+#deactivate --> desactiva el entorno 
