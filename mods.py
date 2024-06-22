@@ -49,7 +49,7 @@ DATABASES = {
 ##CREACION DE MODELOS
 #crear el modelo en models.py
 #from django.db import models
-class Tarea(models.Models):
+class Tarea(models.Model):
     pass
 
 class Flan(models.Model):
@@ -58,17 +58,25 @@ class Flan(models.Model):
 #python manage.py makemigrations
 #python manage.py migrate
 
-##Templates
+##en la App creamos el archivo 
+#services.py
+#importamos los modelos/agregamos los metodos 
+from .models import Tarea,Flan
+
+def metodo_requerido():
+    pass
+
+######TEMPLATES######
 #crear carpeta templates en la App
 #crear los HTML, con estrutura basica
 #crear metodo de despliegue en HTML
-#crear ruta que enlaza a viewa.py de la App
+#crear ruta que enlaza a views.py de la App
 
 ## Jazzmin
 #pip install -U django-jazzmin
 INSTALLED_APPS = [
     'jazzmin',
-    ......,
+    ...,
 ]
 
 #python manage.py runserver 0.0.0.0:8000

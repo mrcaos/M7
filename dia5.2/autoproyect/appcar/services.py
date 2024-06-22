@@ -1,4 +1,4 @@
-from appcar.models import Chofer,Vehiculo,RegistroContabilidad
+from .models import Chofer,Vehiculo,RegistroContabilidad
 
 
 def crear_vehiculo(patente,modelo,marca,year,activo=False):
