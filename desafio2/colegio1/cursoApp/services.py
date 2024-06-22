@@ -33,8 +33,9 @@ def obtiene_estudiante(Rut):
 def obtiene_profesor(Rut):
     return Profesor.objects.get(pk=Rut)
 
-def obtiene_curso():
-    pass
+def obtiene_curso(Curso):
+    curso = Curso.objects.get(codigo=codigo)
+    return curso
 
 def agrega_profesor_a_curso(Curso,Profesor):
     Profesor.cursos.add(Curso)
@@ -42,5 +43,9 @@ def agrega_profesor_a_curso(Curso,Profesor):
 def agrega_cursos_a_estudiante(estudiante,curso):
     estudiante.curso.add(Curso)
 
-def imprime_estudiante_cursos():
-    pass 
+def agregar_cursos_a_estudiantes(rut,codigos):
+    estudiante = obtener_estudiante(rut)
+    for codigo in codigos:
+        curso = obtener_curso(codigo)
+        estudiante.curso_set.add(curso)
+        estudiante.save()

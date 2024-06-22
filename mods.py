@@ -14,6 +14,9 @@
 #pip install django==3.2.4 ---> instala una version especifica
 #pip list
 
+##respaldamos las instalaciones
+#pip freeze > requirements.txt
+
 ##crear proyecto e ingresar a la carpeta
 #django-admin startproject nombreProyecto
 #cd nombreProyecto
