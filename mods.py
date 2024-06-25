@@ -37,8 +37,8 @@ INSTALLED_APPS = [
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "sistema_base",
-        "USER": "postgres",
+        "NAME": "NOMBRE",
+        "USER": "USUARIO",
         "PASSWORD": "password",
         "HOST": "127.0.0.1",
         "PORT": "5432", #segun el motor que ocuparemos
