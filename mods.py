@@ -4,14 +4,21 @@
 #python -V --> ver version de python 
 #python -m django ---> ver version de django
 
-##crea y activa el entorno
+##crea el entorno
 #python -m venv nombreEntorno
+
+##activa el entorno
 #source nombreEntorno/Scritpt/activate
 
-##ver las dependencias e instalar lo solicitado
+##ver las dependencias
 #pip list
+
+##instalar dependencias DJANGO
 #pip install django
 #pip install django==3.2.4 ---> instala una version especifica
+
+##instalar drivers de base de datos en nuestro entorno virtual 
+#pip install psycopg2        #para postGres
 #pip list
 
 ##respaldamos las instalaciones
@@ -31,20 +38,35 @@ INSTALLED_APPS = [
 ]
 
 ##ORM instalar driver en nuestro entorno virtual 
-#sqlite viene por defecto
+##en una nueva terminal activaremos la base de datos postgreSQL
+#psql -U postgres
+
+##creacion de base de datos 
+#create database nombre_baseDatos;
+
+##entraremos a la base de datos creada
+#\c nombre_baseDatos
+
+##sqlite viene por defecto
 #pip install psycopg2        #para postGres
+
 #se reemplaza en settings.py
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "NOMBRE",
-        "USER": "USUARIO",
-        "PASSWORD": "password",
+        "NAME": "NOMBRE", #nombre de la base de datos que activaremos
+        "USER": "postgres",
+        "PASSWORD": "password", 
         "HOST": "127.0.0.1",
         "PORT": "5432", #segun el motor que ocuparemos
     }
 }
+
 #pip install mysqlclient      #para mysqlclient
+
+##ejecutamos las migraciones
+#python manage.py makemigrations
+#python manage.py migrate
 
 ##insertar/crear super usuario
 #python manage.py createsuperuser
@@ -52,11 +74,13 @@ DATABASES = {
 ##CREACION DE MODELOS
 #crear el modelo en models.py
 #from django.db import models
+
 class Tarea(models.Model):
     pass
 
 class Flan(models.Model):
     pass
+
 ##ejecutamos las migraciones
 #python manage.py makemigrations
 #python manage.py migrate
