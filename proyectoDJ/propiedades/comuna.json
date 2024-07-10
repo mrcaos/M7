@@ -1,0 +1,31 @@
+[
+{
+  "model": "rentApp.comuna",
+  "pk": 1,
+  "fields": {
+    "nombre": "Arica",
+    "region": 1
+  }
+},
+{
+  "model": "rentApp.comuna",
+  "fields": {
+    "nombre": "Camarones",
+    "region": 1
+  }
+},
+{
+  "model": "rentApp.comuna",
+  "fields": {
+    "nombre": "General Lagos",
+    "region": 1
+  }
+},
+{
+  "model": "rentApp.comuna",
+  "fields": {
+    "nombre": "Putre",
+    "region": 1
+  }
+}
+]
