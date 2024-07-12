@@ -1,98 +1,98 @@
 [
-{
-  "model": "rentApp.region",
-  "fields": {
-    "nombre": "Arica y Parinacota"
-  }
-},
-{
-  "model": "rentApp.region",
-  "fields": {
-    "nombre": "Tarapaca"
-  }
-},
-{
-  "model": "rentApp.region",
-  "fields": {
-    "nombre": "Antofagasta"
-  }
-},
-{
-  "model": "rentApp.region",
-  "fields": {
-    "nombre": "Atacama"
-  }
-},
-{
-  "model": "rentApp.region",
-  "fields": {
-    "nombre": "Coquimbo"
-  }
-},
-{
-  "model": "rentApp.region",
-  "fields": {
-    "nombre": "Valparaíso"
-  }
-},
-{
-  "model": "rentApp.region",
-  "fields": {
-    "nombre": "Región del Libertador Gral. Bernardo O’Higgins"
-  }
-},
-{
-  "model": "rentApp.region",
-  "fields": {
-    "nombre": "Región del Maule"
-  }
-},
-{
-  "model": "rentApp.region",
-  "fields": {
-    "nombre": "Región de Ñuble"
-  }
-},
-{
-  "model": "rentApp.region",
-  "fields": {
-    "nombre": "Región del Biobío"
-  }
-},
-{
-  "model": "rentApp.region",
-  "fields": {
-    "nombre": "Región de la Araucanía"
-  }
-},
-{
-  "model": "rentApp.region",
-  "fields": {
-    "nombre": "Región de Los Ríos"
-  }
-},
-{
-  "model": "rentApp.region",
-  "fields": {
-    "nombre": "Región de Los Lagos"
-  }
-},
-{
-  "model": "rentApp.region",
-  "fields": {
-    "nombre": "Región Aisén del Gral. Carlos Ibáñez del Campo"
-  }
-},
-{
-  "model": "rentApp.region",
-  "fields": {
-    "nombre": "Región de Magallanes y de la Antártica Chilena"
-  }
-},
-{
-  "model": "rentApp.region",
-  "fields": {
-    "nombre": "Región Metropolitana de Santiago"
-  }
-}
+    {
+        "model": "rentApp.region",
+        "fields": {
+          "nombre": "Arica y Parinacota"
+        }
+      },
+      {
+        "model": "rentApp.region",
+        "fields": {
+          "nombre": "Tarapacá"
+        }
+      },
+      {
+        "model": "rentApp.region",
+        "fields": {
+          "nombre": "Antofagasta"
+        }
+      },
+      {
+        "model": "rentApp.region",
+        "fields": {
+          "nombre": "Atacama"
+        }
+      },
+      {
+        "model": "rentApp.region",
+        "fields": {
+          "nombre": "Coquimbo"
+        }
+      },
+      {
+        "model": "rentApp.region",
+        "fields": {
+          "nombre": "Valparaíso"
+        }
+      },
+      {
+        "model": "rentApp.region",
+        "fields": {
+          "nombre": "Región del Libertador Gral. Bernardo O’Higgins"
+        }
+      },
+      {
+        "model": "rentApp.region",
+        "fields": {
+          "nombre": "Región del Maule"
+        }
+      },
+      {
+        "model": "rentApp.region",
+        "fields": {
+          "nombre": "Región de Ñuble"
+        }
+      },
+      {
+        "model": "rentApp.region",
+        "fields": {
+          "nombre": "Región del Biobío"
+        }
+      },
+      {
+        "model": "rentApp.region",
+        "fields": {
+          "nombre": "Región de la Araucanía"
+        }
+      },
+      {
+        "model": "rentApp.region",
+        "fields": {
+          "nombre": "Región de Los Ríos"
+        }
+      },
+      {
+        "model": "rentApp.region",
+        "fields": {
+          "nombre": "Región de Los Lagos"
+        }
+      },
+      {
+        "model": "rentApp.region",
+        "fields": {
+          "nombre": "Región Aisén del Gral. Carlos Ibáñez del Campo"
+        }
+      },
+      {
+        "model": "rentApp.region",
+        "fields": {
+          "nombre": "Región de Magallanes y de la Antártica Chilena"
+        }
+      },
+      {
+        "model": "rentApp.region",
+        "fields": {
+          "nombre": "Región Metropolitana de Santiago"
+        }
+      }
 ]

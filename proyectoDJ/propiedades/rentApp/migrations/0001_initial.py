@@ -25,7 +25,7 @@ class Migration(migrations.Migration):
                         verbose_name="ID",
                     ),
                 ),
-                ("nombre", models.CharField(max_length=100)),
+                ("nombre", models.CharField(max_length=200)),
             ],
         ),
         migrations.CreateModel(
@@ -70,7 +70,7 @@ class Migration(migrations.Migration):
                         verbose_name="ID",
                     ),
                 ),
-                ("nombre", models.CharField(max_length=100)),
+                ("nombre", models.CharField(max_length=200)),
                 (
                     "region",
                     models.ForeignKey(

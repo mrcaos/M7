@@ -100,7 +100,7 @@ def metodo_requerido():
 #crear ruta que enlaza a views.py de la App
 
 ## Jazzmin
-#crea un mejor entorno en el /admin
+#crea un mejor entorno visual en el /admin
 #pip install -U django-jazzmin
 INSTALLED_APPS = [
     'jazzmin',
@@ -138,7 +138,8 @@ python manage.py dumpdata --indent 2 rentApp.region > region.json
 python manage.py loaddata region.json
 
 
-##desplegar proyeco
+##desplegar proyecto
 #python manage.py runserver
 
-#deactivate --> desactiva el entorno 
+#deactivate --> desactiva el entorno
+
