@@ -4,9 +4,8 @@ from django.contrib.auth.models import User
 # Create your models here.
 class Tipo_usuario(models.Model):
     nombre=models.CharField(max_length=12)
-    
     def __str__(self):
-        return f"{self.nombre}"
+        return f"{self.id} {self.nombre}"
 
 class Usuario(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE,null=False)
@@ -17,23 +16,22 @@ class Usuario(models.Model):
     telefono=models.CharField(max_length=50,null=False,blank=False)
     #correo=models.CharField(max_length=50,null=False,blank=False)
     tipo_usuario=models.ForeignKey(Tipo_usuario,on_delete=models.CASCADE,null=False)
+    def __str__(self):
+        return f"{self.rut}"
 
 class Tipo_inmueble(models.Model):
     nombre=models.CharField(max_length=15)
-    
     def __str__(self):
         return f"{self.nombre}"
 
 class Region(models.Model):
     nombre=models.CharField(max_length=200)
-    
     def __str__(self):
         return self.nombre
 
 class Comuna(models.Model):
     nombre=models.CharField(max_length=200)
     region=models.ForeignKey(Region,on_delete=models.CASCADE,null=False)
-    
     def __str__(self):
         return self.nombre
 
@@ -53,6 +51,5 @@ class Inmueble(models.Model):
     arrendador=models.ForeignKey(User,on_delete=models.CASCADE,null=False)
     arrendatario=models.ForeignKey(Usuario,on_delete=models.CASCADE,null=False)
     arrendada=models.BooleanField(default=False)
-    
     def __str__(self):
         return f"{self.nombre}"

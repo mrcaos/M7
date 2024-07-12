@@ -13,15 +13,18 @@
             <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a> 
           </li>
           {% if user.is_authenticated %}
-          {{user.usuario}}
-          <li class="nav-item">
-            <a class="nav-link" href="">Propiedades</a>
-          </li>
-          
-          <li class="nav-item">
-            <a class="nav-link" href="">Mis Propiedades</a>
-          </li>
+          {{user.usuario.tipo_usuario.nombre}}
+            {% if tipo_usuario == 2 %}
+              <li class="nav-item">
+                <a class="nav-link" href="">Propiedades</a>
+              </li>
+            {% elif tipo_usuario == 1 %}
+              <li class="nav-item">
+                <a class="nav-link" href="">Mis Propiedades</a>
+              </li>
+            {% endif %}
           {% endif %}
+          
           <li class="nav-item">
             <a class="nav-link" href="">Welcome</a>
           </li> 
