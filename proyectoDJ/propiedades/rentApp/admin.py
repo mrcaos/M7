@@ -7,4 +7,9 @@ admin.site.register(Tipo_usuario)
 admin.site.register(Usuario)
 admin.site.register(Region)
 admin.site.register(Comuna)
-admin.site.register(Inmueble)
+
+
+class InmuebleAdmin(admin.ModelAdmin):
+    list_display = ['nombre','descripcion','arrendada','tipo_inmueble','m2_construidos']
+    
+admin.site.register(Inmueble,InmuebleAdmin)
