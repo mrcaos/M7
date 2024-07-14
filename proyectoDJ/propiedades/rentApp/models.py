@@ -10,11 +10,11 @@ class Tipo_usuario(models.Model):
 class Usuario(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE,null=False)
     rut=models.CharField(max_length=9,primary_key=True)
-    #nombres=models.CharField(max_length=50,null=False,blank=False)
-    #apellidos=models.CharField(max_length=50,null=False,blank=False)
+    nombres=models.CharField(max_length=50,null=False,blank=False)
+    apellidos=models.CharField(max_length=50,null=False,blank=False)
     direccion=models.CharField(max_length=50,null=False,blank=False)
     telefono=models.CharField(max_length=50,null=False,blank=False)
-    #correo=models.CharField(max_length=50,null=False,blank=False)
+    correo=models.CharField(max_length=50,null=False,blank=False)
     tipo_usuario=models.ForeignKey(Tipo_usuario,on_delete=models.CASCADE,null=False)
     def __str__(self):
         return f"{self.rut}"

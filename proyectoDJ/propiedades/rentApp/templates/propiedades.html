@@ -3,57 +3,63 @@
 {% block 'content'%}
 <div class="container">
 
-    <form action="{% url "guardar_cliente" %}" method="POST">
+    <form action="" method="POST">
         {% csrf_token %}
-        <div class="mb-3">
-            <label for="nombre" class="form-label">Nombre</label>
-            <input type="text" class="form-control" id="nombre" name="nombre">
-        </div>
-        <div class="mb-3">
-            <label for="apellido" class="form-label">Apellido</label>
-            <input type="text" class="form-control" id="apellido" name="apellido">
-        </div>
-        <div class="mb-3">
-            <label for="edad" class="form-label">Edad</label>
-            <input type="number" class="form-control" id="edad" name="edad" min="1" max="100">
-        </div>
-        <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
-            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-        </div>
+        <div class="row">
+            <div class="col-5">
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Seleccione tipo propiedad</option>
+                    {% for tipo in tipo_inmuebles %}
+                    <option value="{{tipo.id}}">{{tipo.nombre}}</option>
+                    {% endfor %}
 
-        <button type="submit" class="btn btn-primary">Submit</button>
+                </select>
+            </div>
+            <div class="col-5">
+
+                <input type="text" class="form-control" id="comuna" name="comuna" placeholder="Ingrese comuna">
+            </div>
+            <div class="col-2">
+                <button type="submit" class="btn btn-primary">Buscar</button>
+            </div>
+        </div>
     </form>
 
-    <hr>
+    <div class="my-5">
+        <h1>Lista de Inmuebles</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Edad</th>
-                <th scope="col">Email</th>
-                <th scope="col">Estado</th>
-                <th scope="col">Direccion</th>
-                <th scope="col-2">Acciones</th>
+        {% if lista_inmuebles %}
+            <ul>
 
-            </tr>
-        </thead>
-        <tbody>
-            {% for cliente in lista_clientes %}
-            <tr>
-                <th scope="row">{{cliente.cliente_id}}</th>
-                <td>{{cliente.nombre}} {{cliente.apellido}}</td>
-                <td>{{cliente.edad}}</td>
-                <td>{{cliente.email}}</td>
-                <td>{{cliente.cliente_activo}}</td>
-                <td>{{cliente.direccion.calle}} {{cliente.direccion.numero}}</td>
-                <td>Editar | Eliminar</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+                {% for inmueble in lista_inmuebles %}
+                <li>
+                    <a href="">{{ inmueble.id }}</a> {{inmueble.nombre}} - {{inmueble.descripcion}}
+                </li>
+                {% endfor %}
+
+            </ul>
+        {% else %}
+            <p>No hay Propiedades para arrendar.</p>
+        {% endif %}
+
+        {% block pagination %}
+        {% if is_paginated %}
+            <div class="pagination">
+                <span class="page-links">
+                    {% if page_obj.has_previous %}
+                        <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">anterior</a>
+                    {% endif %}
+                    <span class="page-current">
+                        Pagina {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                    </span>
+                    {% if page_obj.has_next %}
+                        <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">siguiente</a>
+                    {% endif %}
+                </span>
+            </div>
+        {% endif %}
+        {% endblock %}
+    </div>
+
 </div>
 {% endblock %}
