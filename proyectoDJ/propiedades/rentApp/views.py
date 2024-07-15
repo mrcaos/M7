@@ -79,4 +79,4 @@ def actualizar_usuario(request):
     else:
         u_form = UsuarioForm(instance=request.usuario.profile)
         context={'u_form': u_form}
-        return render(request, '/usuario_actualizar.html',context)
+        return render(request, 'usuario_actualizar.html',context)
