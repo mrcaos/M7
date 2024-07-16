@@ -1,5 +1,5 @@
-from django.shortcuts import render,redirect
-from .models import Tipo_inmueble, Inmueble, Usuario, Tipo_usuario
+from django.shortcuts import redirect, render
+from .models import Tipo_inmueble, Inmueble, Usuario, Tipo_usuario, Region, Comuna
 from .forms import InmuebleForm,LoginForm,UsuarioForm
 from django.views.generic import ListView
 
@@ -22,13 +22,12 @@ def registro(request):
         apellido = request.POST["apellido"]
         
         user = User.objects.create_user(username, email, password)
+        print(user)
         nombre = request.POST["nombre"]
         apellido = request.POST["apellido"]
         user.first_name = nombre
         user.last_name = apellido
         user.save()
-        
-        return redirect("login")
         
         ###USUARIO###
         rut = request.POST["rut"]
@@ -38,6 +37,8 @@ def registro(request):
         tipo_usuario = Tipo_usuario.objects.get(pk=2)
         usuario = Usuario(user=user,rut=rut,direccion=direccion,telefono=telefono,tipo_usuario=tipo_usuario)
         usuario.save()
+        
+        return redirect("login")
 
     
 class SignUpView(CreateView):
@@ -49,8 +50,9 @@ class SignUpView(CreateView):
 def index(request):
     
     context={
-        'tipo_usuario':request.user.usuario.tipo_usuario.id,
-        'tipo_inmuebles':Tipo_inmueble.objects.all()
+        #'tipo_usuario':request.user.usuario.tipo_usuario.id,
+        'tipo_inmuebles':Tipo_inmueble.objects.all(),
+        'regiones': Region.objects.all()
     }
     
     return render(request,'index.html',context)
@@ -77,6 +79,29 @@ def actualizar_usuario(request):
             u_form.save()
             return HttpResponseRedirect('/')
     else:
-        u_form = UsuarioForm(instance=request.usuario.profile)
+        usuario = Usuario.objects.get(pk=request.user.usuario.rut)
+        print(usuario)
+        u_form = UsuarioForm()
         context={'u_form': u_form}
         return render(request, 'usuario_actualizar.html',context)
+    
+    
+def filtrar_comunas(request):
+    try:
+        if request.method == 'POST':
+            data = json.loads(request.body)
+            regionId = data.get('regionId')
+            print('**** region id ****',regionId)
+            dataBD = list(Comuna.objects.filter(
+                region=regionId).values()
+                )
+            print('**** dataBD ****',dataBD)
+            return JsonResponse({'status': 200, 'data': dataBD})
+        else:
+            return JsonResponse({'error': 'Método no permitido'}, status=405)
+    except Exception as e:
+        return JsonResponse({'error': str(e)}, status=400)
+    
+    
+def inmuebles_buscar(request):
+    pass

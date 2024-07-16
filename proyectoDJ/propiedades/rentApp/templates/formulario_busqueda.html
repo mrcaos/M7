@@ -1,0 +1,29 @@
+<form action="{% url "inmuebles_buscar" %}" method="POST">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-3">
+            <select class="form-select" aria-label="Default select example">
+                <option selected>Seleccione tipo inmueble</option>
+                {%for tipo in tipo_inmuebles %}
+                <option value="{{tipo.id}}">{{tipo.nombre}}</option>
+                {% endfor%}
+            </select>
+        </div>
+        <div class="col-3">
+            <select class="form-select" id="region" name="region" onchange="filtrarComunas(this.value)">
+                <option selected>Seleccione región</option>
+                {%for region in regiones %}
+                <option value="{{region.id}}">{{region.nombre}}</option>
+                {% endfor%}
+            </select>
+        </div>
+        <div class="col-3">
+            <select class="form-select" id="comuna" name="comuna">
+                <option selected>Seleccione Comuna</option>
+            </select>
+        </div>
+        <div class="col-1">
+
+        </div>
+    </div>
+</form> 
