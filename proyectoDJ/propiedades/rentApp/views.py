@@ -16,12 +16,12 @@ def registro(request):
     
     if request.method =="POST": #CAPTURA Y GUARDA LOS DATOS 
         username = request.POST["username"]
-        email = request.POST["email"]
+        correo = request.POST["email"]
         password = request.POST["pass"]
         nombre = request.POST["nombre"]
         apellido = request.POST["apellido"]
         
-        user = User.objects.create_user(username, email, password)
+        user = User.objects.create_user(username, correo, password)
         print(user)
         nombre = request.POST["nombre"]
         apellido = request.POST["apellido"]
@@ -50,7 +50,7 @@ class SignUpView(CreateView):
 def index(request):
     
     context={
-        #'tipo_usuario':request.user.usuario.tipo_usuario.id,
+        ##'tipo_usuario':request.user.usuario.tipo_usuario.id,
         'tipo_inmuebles':Tipo_inmueble.objects.all(),
         'regiones': Region.objects.all()
     }
@@ -105,3 +105,4 @@ def filtrar_comunas(request):
     
 def inmuebles_buscar(request):
     pass
+
