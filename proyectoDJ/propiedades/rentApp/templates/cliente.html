@@ -2,7 +2,6 @@
 
 {% block 'content'%}
 <div class="container">
-
     <form action="{% url "guardar_cliente" %}" method="POST">
         {% csrf_token %}
         <div class="mb-3">
@@ -22,12 +21,9 @@
             <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
         </div>
-
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
-
     <hr>
-
     <table class="table">
         <thead>
             <tr>
@@ -38,7 +34,6 @@
                 <th scope="col">Estado</th>
                 <th scope="col">Direccion</th>
                 <th scope="col-2">Acciones</th>
-
             </tr>
         </thead>
         <tbody>

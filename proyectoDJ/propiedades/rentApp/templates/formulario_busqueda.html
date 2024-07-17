@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+
 <form action="{% url "inmuebles_buscar" %}" method="POST">
     {% csrf_token %}
     <div class="row">

@@ -1,7 +1,8 @@
 {% extends "base.html" %}
+
 {% block 'content'%}
 <div class="container">
-    <form action="" method="POST">
+    <form action="{% url "index" %}" method="POST">
         {% csrf_token %}
         <div class="row">
             <div class="col-5">
@@ -13,7 +14,6 @@
                 </select>
             </div>
             <div class="col-5">
-
                 <input type="text" class="form-control" id="comuna" name="comuna" placeholder="Ingrese comuna">
             </div>
             <div class="col-2">
@@ -21,24 +21,19 @@
             </div>
         </div>
     </form>
-
     <div class="my-5">
         <h1>Lista de Inmuebles</h1>
-
         {% if lista_inmuebles %}
             <ul>
-
                 {% for inmueble in lista_inmuebles %}
                 <li>
                     <a href="">{{ inmueble.id }}</a> {{inmueble.nombre}} - {{inmueble.descripcion}}
                 </li>
                 {% endfor %}
-
             </ul>
         {% else %}
             <p>No hay Propiedades para arrendar.</p>
         {% endif %}
-
         {% block pagination %}
         {% if is_paginated %}
             <div class="pagination">
@@ -57,6 +52,5 @@
         {% endif %}
         {% endblock %}
     </div>
-
 </div>
 {% endblock %}
