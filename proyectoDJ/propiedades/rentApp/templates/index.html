@@ -2,6 +2,22 @@
 
 {% block 'content'%}
 <div class="container">
-
+    {% block 'busqueda' %}
+    {% include 'formulario_busqueda.html' %}
+    {% endblock %}
+    
+    <div class="row mt-5">
+    {% for inmueble in lista_inmuebles %}
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{inmueble.nombre}}</h5>
+                    <p class="card-text">{{inmueble.descripcion}}</p>
+                    <a href="#" class="btn btn-primary">Ver detalle</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
 </div>
 {% endblock %}
