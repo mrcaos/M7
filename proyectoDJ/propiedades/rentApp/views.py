@@ -1,6 +1,6 @@
 import json
 from django.http import HttpResponseRedirect, JsonResponse
-from django.shortcuts import redirect, render,get_object_or_404
+from django.shortcuts import redirect, render, get_object_or_404
 from .models import Tipo_inmueble, Inmueble, Usuario,Tipo_usuario,Region,Comuna
 from .forms import InmuebleForm,LoginForm,UsuarioForm
 from django.views.generic import ListView
@@ -67,7 +67,7 @@ def index(request):
         'regiones': Region.objects.all(), 
     }
 
-    return render(request,'index.html',context)
+    return render(request,'index.html', context)
 
 
 class InmuebleListView(ListView):

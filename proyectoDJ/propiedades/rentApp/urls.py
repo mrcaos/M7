@@ -1,8 +1,12 @@
 from django.urls import path
+from django.contrib.auth.views import LoginView,LogoutView
 from rentApp import views
 from .views import SignUpView
 
 urlpatterns = [
+    path('',views.index,name='index'),
+    path('login/',LoginView.as_view(next_page='index'),name='login'),
+    path('logout/',LogoutView.as_view(),name='logout'),
     path("signup/", SignUpView.as_view(), name="signup"),
     path('inmuebles', views.InmuebleListView.as_view(), name='inmuebles'),
     path('mispropiedades',views.mispropiedades,name='mispropiedades'),
