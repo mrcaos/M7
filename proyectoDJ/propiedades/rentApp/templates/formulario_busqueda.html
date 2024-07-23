@@ -1,3 +1,4 @@
+
 {% block "busqueda" %}
 <form action="{% url "inmuebles_buscar" %}" method="POST">
     {% csrf_token %}
@@ -24,7 +25,7 @@
             </select>
         </div>
         <div class="col-1">
-
+            <button type="submit" class="btn btn-primary">Buscar</button>
         </div>
     </div>
 </form> 

@@ -50,7 +50,7 @@ def actualizar_usuario(request):
     else:
         u_form = UsuarioForm(instance=request.user.usuario)
         context={'u_form': u_form}
-        return render(request, 'usuario_actualizar.html',context )
+        return render(request, 'usuario_actualizar.html')
 
 class SignUpView(CreateView):
     form_class = LoginForm
@@ -116,5 +116,5 @@ def filtrar_comunas(request):
     
     
 def inmuebles_buscar(request):
-    return render(request,'formulario_busqueda.html',context)
+    return render(request,'formulario_busqueda.html')
 
