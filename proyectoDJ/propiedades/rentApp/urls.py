@@ -5,8 +5,8 @@ from .views import SignUpView
 
 urlpatterns = [
     path('',views.index,name='index'),
-    path('login/',LoginView.as_view(next_page='index'),name='login'),
-    path('logout/',LogoutView.as_view(next_page=''),name='logout'),
+    path('login/',LoginView.as_view(next_page='actualizar_usuario'),name='login'),
+    path('logout/',LogoutView.as_view(),name='logout'),
     path("signup/", SignUpView.as_view(), name="signup"),
     path('inmuebles', views.InmuebleListView.as_view(), name='inmuebles'),
     path('mispropiedades',views.mispropiedades,name='mispropiedades'),

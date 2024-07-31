@@ -1,12 +1,14 @@
 {% extends 'base.html' %}
 
 {% block 'content' %}
-<div class="container mt-5 mb-5">
-    <div class="alert alert-success text-center" role="alert">
-        EL cierre de sesión se realizo correctamente.
+<form method="POST" action="{% url 'logout' %}">
+    <div class="container mt-5 mb-5">
+        <div class="alert alert-success text-center" role="alert">
+            EL cierre de sesión se realizo correctamente.
+        </div>
+        <div class="text-center mt-3">
+            <a href="{% url 'index' %}" class="btn btn-primary">Volver al inicio</a>
+        </div>
     </div>
-    <div class="text-center mt-3">
-        <a href="{% url 'index' %}" class="btn btn-primary">Volver al inicio</a>
-    </div>
-</div>
+</form>
 {% endblock %}

@@ -12,6 +12,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
 
+
 # Create your views here.
 def registro(request):
     if request.method =="GET":#desplegar el html
@@ -116,5 +117,10 @@ def filtrar_comunas(request):
     
     
 def inmuebles_buscar(request):
-    return render(request,'formulario_busqueda.html')
+    return render(request,'formulario_busqueda.html',{})
+
+
+def user_logout(request):
+
+    return render(request, 'registration/logged_out.html', {})
 
