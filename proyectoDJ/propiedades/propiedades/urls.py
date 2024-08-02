@@ -25,5 +25,5 @@ urlpatterns = [
     path("", include('rentApp.urls')),
     path('registro', views.registro, name='registro'),
     #path("select2/", include("django-select2.urls")),
-    #path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]
