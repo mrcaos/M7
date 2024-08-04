@@ -85,6 +85,9 @@ def mispropiedades(request):
     }
     return render(request,'mispropiedades.html',context)
 
+def propiedades(request):
+    return render(request,'propiedades.html',{})
+
 class InmuebleCreateView(generic.CreateView):
     model = Inmueble
     form_class = InmuebleForm
@@ -121,6 +124,5 @@ def inmuebles_buscar(request):
 
 
 def user_logout(request):
-
     return render(request, 'registration/logged_out.html', {})
 

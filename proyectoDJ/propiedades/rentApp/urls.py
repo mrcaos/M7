@@ -9,6 +9,7 @@ urlpatterns = [
     path('logout/',LogoutView.as_view(),name='logout'),
     path("signup/", SignUpView.as_view(), name="signup"),
     path('inmuebles', views.InmuebleListView.as_view(), name='inmuebles'),
+    path('propiedades',views.propiedades,name='propiedades'),
     path('mispropiedades',views.mispropiedades,name='mispropiedades'),
     path('actualizar_usuario', views.actualizar_usuario, name='actualizar_usuario'),
     path('filtrar-comunas/',views.filtrar_comunas,name='filtrar-comunas'),
